@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MOJ TAXI - Prevoz 24H</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: white;
+    }
+    header {
+      text-align: center;
+      padding: 30px 20px;
+      background: #111;
+      border-bottom: 5px solid #ffd000;
+    }
+    .logo {
+      font-size: 55px;
+    }
+    h1 {
+      color: #ffd000;
+      font-size: 42px;
+      margin: 10px 0;
+    }
+    header p {
+      font-size: 18px;
+      margin-top: 6px;
+    }
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, #111 50%, #ffd000 50%);
+    }
+    .hero h2 {
+      font-size: 32px;
+      margin-bottom: 15px;
+    }
+    .hero p {
+      font-size: 19px;
+      margin-bottom: 25px;
+    }
+    .call-button {
+      display: inline-block;
+      background: #111;
+      color: #ffd000;
+      padding: 18px 32px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 21px;
+      font-weight: bold;
+    }
+    .section {
+      padding: 50px 20px;
+      text-align: center;
+    }
+    .white {
+      background: white;
+      color: #111;
+    }
+    .yellow {
+      background: #ffd000;
+      color: #111;
+    }
+    .section h2 {
+      font-size: 30px;
+      margin-bottom: 25px;
+    }
+    .service {
+      max-width: 420px;
+      margin: 12px auto;
+      padding: 20px;
+      background: #ffd000;
+      border-radius: 14px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .form-box {
+      max-width: 450px;
+      margin: auto;
+    }
+    input {
+      width: 100%;
+      padding: 16px;
+      margin: 8px 0;
+      border: 2px solid #111;
+      border-radius: 10px;
+      font-size: 17px;
+    }
+    .send {
+      width: 100%;
+      border: none;
+      padding: 16px;
+      margin-top: 10px;
+      background: #111;
+      color: #ffd000;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .review {
+      background: #222;
+      max-width: 450px;
+      margin: 15px auto;
+      padding: 20px;
+      border-radius: 12px;
+      color: white;
+    }
+    .stars {
+      color: #ffd000;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    footer {
+      text-align: center;
+      background: #000;
+      padding: 25px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">🚕</div>
+    <h1>MOJ TAXI</h1>
+    <p>Brz • Siguran • Pouzdan</p>
+    <p>🕐 Dostupni 24H</p>
+  </header>
+  <section class="hero">
+    <h2>PREVOZ PUTNIKA 24H</h2>
+    <p>
+      Vozimo svuda — gradske i međugradske vožnje.
+    </p>
+    <a class="call-button" href="tel:0621336412">
+      📞 POZOVI ODMAH
+    </a>
+  </section>
+  <section class="section white">
+    <h2>NAŠE USLUGE</h2>
+    <div class="service">
+      🚕 Gradske vožnje
+    </div>
+    <div class="service">
+      🛣️ Međugradske vožnje
+    </div>
+    <div class="service">
+      ✈️ Aerodromski transferi
+    </div>
+    <div class="service">
+      🌍 Vožnje na bilo koju destinaciju
+    </div>
+    <div class="service">
+      🕐 Dostupni 24 časa
+    </div>
+  </section>
+  <section class="section yellow">
+    <h2>ZATRAŽI VOŽNJU</h2>
+    <div class="form-box">
+      <input id="from" type="text" placeholder="📍 Odakle?">
+      <input id="to" type="text" placeholder="📍 Dokle?">
+      <button class="send" onclick="sendRide()">
+        🚕 POŠALJI UPIT
+      </button>
+    </div>
+  </section>
+  <section class="section">
+    <h2>ZAŠTO MOJ TAXI?</h2>
+    <p style="font-size:19px; line-height:1.6;">
+      Pouzdan prevoz putnika 24 časa dnevno.
+      Vozimo po gradu, okolini i međugradskim relacijama.
+      Za termin i cenu lako se dogovaramo.
+    </p>
+  </section>
+  <section class="section white">
+    <h2>UTISCI MUŠTERIJA</h2>
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      Brza i prijatna vožnja. Preporuka!
+    </div>
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      Vozač tačan i ljubazan. Sve pohvale.
+    </div>
+  </section>
+  <section class="section yellow">
+    <h2>KONTAKT</h2>
+    <p style="font-size:22px; margin-bottom:20px;">
+      📞 062 133 6412
+    </p>
+    <a class="call-button" href="tel:0621336412">
+      📞 POZOVI ODMAH
+    </a>
+  </section>
+  <footer>
+    © 2026 MOJ TAXI
+    <br>
+    Dostupni 24H
+  </footer>
+  <script>
+    function sendRide() {
+      let from = document.getElementById("from").value;
+      let to = document.getElementById("to").value;
+      if (from === "" || to === "") {
+        alert("Molimo unesite odakle i dokle želite vožnju.");
+        return;
+      }
+      alert(
+        "Vožnja je zatražena!\n\nOdakle: " +
+        from +
+        "\nDokle: " +
+        to +
+        "\n\nPozovite 062 133 6412 za potvrdu."
+      );
+    }
+  </script>
+</body>
+</html>
