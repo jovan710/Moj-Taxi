@@ -3,12 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MOJ TAXI Novi Sad | Taxi 24H i Prevoz Putnika</title>
+  <title>MOJ TAXI Novi Sad | Prevoz putnika 24H</title>
   <meta name="description"
-        content="MOJ TAXI Novi Sad - prevoz putnika 24H. Gradske, međugradske i aerodromske vožnje. Pozovite 062 133 6412.">
-  <meta name="keywords"
-        content="taxi Novi Sad, taxi 24h Novi Sad, prevoz Novi Sad, taksi Novi Sad, međugradski prevoz, aerodromski transfer">
-  <meta name="author" content="MOJ TAXI">
+        content="MOJ TAXI Novi Sad - brz, siguran i pouzdan prevoz putnika 24H. Gradske, međugradske i aerodromske vožnje. Pozovite 062 133 6412.">
   <meta name="robots" content="index, follow">
   <style>
     * {
@@ -21,58 +18,114 @@
     }
     body {
       font-family: Arial, sans-serif;
-      background: #111;
+      background: #0d0d0d;
       color: white;
     }
+    /* NAVIGACIJA */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #0d0d0d;
+      border-bottom: 2px solid #ffd000;
+      padding: 15px 20px;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    nav a:hover {
+      color: #ffd000;
+    }
+    /* LOGO */
     header {
       text-align: center;
-      padding: 35px 20px;
-      background: #111;
-      border-bottom: 5px solid #ffd000;
+      padding: 45px 20px;
+      background: #0d0d0d;
     }
     .logo {
       display: inline-block;
       background: #ffd000;
-      color: #111;
-      padding: 15px 30px;
-      border-radius: 18px;
+      color: #0d0d0d;
+      padding: 18px 35px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(255, 208, 0, 0.25);
     }
     .logo-icon {
-      font-size: 48px;
+      font-size: 52px;
     }
-    h1 {
-      font-size: 40px;
+    .logo h1 {
+      font-size: 42px;
+      letter-spacing: 2px;
       margin-top: 5px;
     }
     header p {
-      margin-top: 8px;
+      margin-top: 12px;
       font-size: 18px;
     }
-    .hero {
-      text-align: center;
-      padding: 70px 20px;
-      background: linear-gradient(135deg, #111 50%, #ffd000 50%);
-    }
-    .hero h2 {
-      font-size: 34px;
-      margin-bottom: 15px;
-    }
-    .hero p {
-      font-size: 20px;
-      margin-bottom: 30px;
-    }
-    .call-button {
+    .availability {
       display: inline-block;
-      background: #ffd000;
-      color: #111;
-      padding: 18px 30px;
-      border-radius: 12px;
-      text-decoration: none;
-      font-size: 20px;
+      margin-top: 15px;
+      background: #1c1c1c;
+      border: 1px solid #ffd000;
+      color: #ffd000;
+      padding: 9px 18px;
+      border-radius: 30px;
       font-weight: bold;
     }
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background:
+        linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+        linear-gradient(135deg, #111 45%, #ffd000 45%);
+    }
+    .hero h2 {
+      font-size: 42px;
+      margin-bottom: 18px;
+    }
+    .hero h2 span {
+      color: #ffd000;
+    }
+    .hero p {
+      max-width: 650px;
+      margin: auto;
+      font-size: 20px;
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .call-button,
+    .ride-button {
+      display: inline-block;
+      padding: 17px 28px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .call-button {
+      background: #ffd000;
+      color: #0d0d0d;
+    }
+    .ride-button {
+      background: #0d0d0d;
+      color: #ffd000;
+      border: 2px solid #ffd000;
+    }
+    /* SEKCIJE */
     .section {
-      padding: 55px 20px;
+      padding: 65px 20px;
       text-align: center;
     }
     .white {
@@ -83,31 +136,51 @@
       background: #ffd000;
       color: #111;
     }
+    .dark {
+      background: #111;
+      color: white;
+    }
     .section h2 {
-      font-size: 30px;
-      margin-bottom: 25px;
+      font-size: 32px;
+      margin-bottom: 15px;
+    }
+    .section-subtitle {
+      max-width: 650px;
+      margin: 0 auto 30px;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    /* USLUGE */
+    .services {
+      max-width: 900px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
     }
     .service {
-      max-width: 430px;
-      margin: 12px auto;
-      padding: 20px;
+      padding: 25px 15px;
       background: #ffd000;
-      border-radius: 14px;
+      border-radius: 15px;
       font-size: 18px;
       font-weight: bold;
     }
+    /* FORMA */
     .form-box {
-      max-width: 500px;
+      max-width: 520px;
       margin: auto;
+      background: white;
+      padding: 25px;
+      border-radius: 18px;
     }
     input,
     textarea {
       width: 100%;
-      padding: 16px;
-      margin: 8px 0;
-      border: 2px solid #111;
+      padding: 15px;
+      margin: 7px 0;
+      border: 2px solid #222;
       border-radius: 10px;
-      font-size: 17px;
+      font-size: 16px;
       font-family: Arial, sans-serif;
     }
     textarea {
@@ -122,68 +195,209 @@
       background: #111;
       color: #ffd000;
       border-radius: 10px;
-      font-size: 19px;
+      font-size: 18px;
       font-weight: bold;
     }
-    .about-text {
-      max-width: 650px;
+    .send-button:active {
+      transform: scale(0.98);
+    }
+    /* PREDNOSTI */
+    .advantages {
+      max-width: 850px;
       margin: auto;
-      font-size: 19px;
-      line-height: 1.7;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
     }
-    .phone {
-      font-size: 26px;
+    .advantage {
+      background: #1c1c1c;
+      padding: 25px 15px;
+      border-radius: 15px;
+      border: 1px solid #333;
+    }
+    .advantage-icon {
+      font-size: 35px;
+      margin-bottom: 10px;
+    }
+    .advantage h3 {
+      color: #ffd000;
+      margin-bottom: 8px;
+    }
+    /* PODRUČJE VOŽNJE */
+    .locations {
+      max-width: 700px;
+      margin: auto;
+      line-height: 2;
+      font-size: 18px;
+    }
+    .location {
+      display: inline-block;
+      margin: 5px;
+      padding: 8px 15px;
+      background: #ffd000;
+      color: #111;
+      border-radius: 20px;
       font-weight: bold;
-      margin-bottom: 20px;
     }
+    /* KONTAKT */
+    .phone {
+      font-size: 30px;
+      font-weight: bold;
+      margin: 20px 0;
+    }
+    /* FOOTER */
     footer {
       background: #000;
       text-align: center;
-      padding: 25px;
-      font-size: 14px;
+      padding: 30px 20px;
+      color: #aaa;
+      line-height: 1.8;
+    }
+    footer strong {
+      color: #ffd000;
+    }
+    /* TELEFON */
+    @media (max-width: 650px) {
+      nav {
+        padding: 12px 5px;
+      }
+      nav a {
+        margin: 0 5px;
+        font-size: 12px;
+      }
+      .logo h1 {
+        font-size: 34px;
+      }
+      .hero {
+        padding: 60px 18px;
+      }
+      .hero h2 {
+        font-size: 32px;
+      }
+      .hero p {
+        font-size: 18px;
+      }
+      .services {
+        grid-template-columns: 1fr;
+      }
+      .advantages {
+        grid-template-columns: 1fr;
+      }
+      .phone {
+        font-size: 25px;
+      }
+      .section {
+        padding: 50px 18px;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- NAVIGACIJA -->
+  <nav>
+    <a href="#usluge">USLUGE</a>
+    <a href="#voznja">ZATRAŽI VOŽNJU</a>
+    <a href="#kontakt">KONTAKT</a>
+  </nav>
+  <!-- LOGO -->
   <header>
     <div class="logo">
       <div class="logo-icon">🚕</div>
       <h1>MOJ TAXI</h1>
     </div>
-    <p>Taxi Novi Sad • Brz • Siguran • Pouzdan</p>
-    <p>🕐 Dostupni 24H</p>
+    <p>Brz • Siguran • Pouzdan</p>
+    <div class="availability">
+      🟢 DOSTUPNI 24H
+    </div>
   </header>
+  <!-- HERO -->
   <section class="hero">
-    <h2>🚕 TAXI NOVI SAD 24H</h2>
+    <h2>
+      TAXI <span>NOVI SAD</span> 24H
+    </h2>
     <p>
-      Gradske, međugradske i aerodromske vožnje.
+      Potreban vam je brz i pouzdan prevoz?
+      Vozimo gradske i međugradske relacije,
+      kao i aerodromske transfere.
     </p>
-    <a class="call-button" href="tel:0621336412">
-      📞 POZOVI ODMAH
-    </a>
+    <div class="buttons">
+      <a class="call-button" href="tel:0621336412">
+        📞 POZOVI ODMAH
+      </a>
+      <a class="ride-button" href="#voznja">
+        🚕 ZATRAŽI VOŽNJU
+      </a>
+    </div>
   </section>
-  <section class="section white">
+  <!-- USLUGE -->
+  <section class="section white" id="usluge">
     <h2>NAŠE USLUGE</h2>
-    <div class="service">
-      🚕 Taxi vožnje po Novom Sadu
-    </div>
-    <div class="service">
-      🛣️ Međugradski prevoz
-    </div>
-    <div class="service">
-      ✈️ Aerodromski transferi
-    </div>
-    <div class="service">
-      🌍 Prevoz na bilo koju destinaciju
-    </div>
-    <div class="service">
-      🕐 Taxi dostupan 24 časa
+    <p class="section-subtitle">
+      Prevoz putnika po Novom Sadu, okolini i širom Srbije.
+    </p>
+    <div class="services">
+      <div class="service">
+        🚕 Gradske vožnje
+      </div>
+      <div class="service">
+        🛣️ Međugradske vožnje
+      </div>
+      <div class="service">
+        ✈️ Aerodromski transferi
+      </div>
+      <div class="service">
+        🌍 Vožnje na bilo koju destinaciju
+      </div>
     </div>
   </section>
-  <section class="section yellow">
+  <!-- ZAŠTO MI -->
+  <section class="section dark">
+    <h2>ZAŠTO MOJ TAXI?</h2>
+    <p class="section-subtitle">
+      Cilj nam je da svaka vožnja bude sigurna,
+      prijatna i pouzdana.
+    </p>
+    <div class="advantages">
+      <div class="advantage">
+        <div class="advantage-icon">⚡</div>
+        <h3>BRZO</h3>
+        <p>Dolazak i prevoz bez nepotrebnog čekanja.</p>
+      </div>
+      <div class="advantage">
+        <div class="advantage-icon">🛡️</div>
+        <h3>SIGURNO</h3>
+        <p>Bezbedan i pouzdan prevoz putnika.</p>
+      </div>
+      <div class="advantage">
+        <div class="advantage-icon">🕐</div>
+        <h3>24H</h3>
+        <p>Dostupni smo tokom celog dana i noći.</p>
+      </div>
+    </div>
+  </section>
+  <!-- PODRUČJE -->
+  <section class="section white">
+    <h2>GDE VOZIMO?</h2>
+    <p class="section-subtitle">
+      Vozimo po Novom Sadu, okolini i na dužim relacijama.
+    </p>
+    <div class="locations">
+      <span class="location">Novi Sad</span>
+      <span class="location">Temerin</span>
+      <span class="location">Bački Jarak</span>
+      <span class="location">Petrovaradin</span>
+      <span class="location">Sremska Kamenica</span>
+      <span class="location">Beočin</span>
+      <span class="location">Futog</span>
+      <span class="location">Veternik</span>
+    </div>
+  </section>
+  <!-- FORMA -->
+  <section class="section yellow" id="voznja">
     <h2>ZATRAŽI VOŽNJU</h2>
-    <p style="margin-bottom:20px;">
-      Unesite podatke i pošaljite zahtev.
+    <p class="section-subtitle">
+      Popunite podatke i pošaljite zahtev.
+      Javićemo vam se radi potvrde vožnje.
     </p>
     <div class="form-box">
       <form action="https://formspree.io/f/meaqqdap"
@@ -221,17 +435,12 @@
       </form>
     </div>
   </section>
-  <section class="section">
-    <h2>MOJ TAXI NOVI SAD</h2>
-    <p class="about-text">
-      MOJ TAXI pruža brz, siguran i pouzdan prevoz putnika.
-      Dostupni smo 24 časa dnevno za gradske i međugradske
-      vožnje, kao i prevoz do aerodroma.
-      Vozimo svuda uz dogovor oko termina i cene.
-    </p>
-  </section>
-  <section class="section yellow">
+  <!-- KONTAKT -->
+  <section class="section dark" id="kontakt">
     <h2>KONTAKT</h2>
+    <p class="section-subtitle">
+      Za brzu rezervaciju pozovite nas direktno.
+    </p>
     <p class="phone">
       📞 062 133 6412
     </p>
@@ -239,10 +448,15 @@
       📞 POZOVI ODMAH
     </a>
   </section>
+  <!-- FOOTER -->
   <footer>
-    © 2026 MOJ TAXI Novi Sad
-    <br><br>
+    <strong>🚕 MOJ TAXI</strong>
+    <br>
     Taxi i prevoz putnika 24H
+    <br>
+    Novi Sad i okolina
+    <br><br>
+    © 2026 MOJ TAXI. Sva prava zadržana.
   </footer>
 </body>
 </html>
