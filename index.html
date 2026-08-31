@@ -6,848 +6,250 @@
 <title>MOJ TAXI Novi Sad | Taxi 24H</title>
 <meta name="description" content="MOJ TAXI Novi Sad - brz, siguran i pouzdan prevoz putnika 24H. Vozimo svuda.">
 <style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
-html{
-    scroll-behavior:smooth;
-}
-body{
-    font-family:Arial,sans-serif;
-    background:#0b0b0b;
-    color:white;
-}
-/* =========================
-   UVODNA ANIMACIJA
-========================= */
-.intro{
-    position:fixed;
-    inset:0;
-    background:#0b0b0b;
-    z-index:9999;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-    animation:introOut 1s ease forwards;
-    animation-delay:3.8s;
-}
-.intro-logo{
-    width:110px;
-    height:110px;
-    background:#ffd000;
-    border-radius:25px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:58px;
-    opacity:0;
-    transform:scale(.5);
-    animation:logoIn .8s ease forwards;
-}
-.intro-title{
-    margin-top:20px;
-    font-size:38px;
-    font-weight:bold;
-    color:#ffd000;
-    letter-spacing:3px;
-    opacity:0;
-    transform:translateY(20px);
-    animation:textIn .7s ease forwards;
-    animation-delay:.7s;
-}
-.intro-text{
-    margin-top:10px;
-    color:white;
-    font-size:18px;
-    opacity:0;
-    transform:translateY(20px);
-    animation:textIn .7s ease forwards;
-    animation-delay:1.4s;
-}
-.loading{
-    margin-top:25px;
-    width:180px;
-    height:4px;
-    background:#222;
-    overflow:hidden;
-    border-radius:10px;
-}
-.loading span{
-    display:block;
-    width:0;
-    height:100%;
-    background:#ffd000;
-    animation:loading 2.5s ease forwards;
-}
-@keyframes logoIn{
-    to{
-        opacity:1;
-        transform:scale(1);
-    }
-}
-@keyframes textIn{
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-@keyframes loading{
-    to{
-        width:100%;
-    }
-}
-@keyframes introOut{
-    to{
-        opacity:0;
-        visibility:hidden;
-    }
-}
-/* =========================
-   NAVIGACIJA
-========================= */
-nav{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    background:rgba(10,10,10,.96);
-    border-bottom:2px solid #ffd000;
-    padding:15px 10px;
-    text-align:center;
-}
-nav a{
-    color:white;
-    text-decoration:none;
-    margin:0 8px;
-    font-size:13px;
-    font-weight:bold;
-}
-nav a:hover{
-    color:#ffd000;
-}
-/* =========================
-   HEADER
-========================= */
-header{
-    text-align:center;
-    padding:50px 20px;
-}
-.logo{
-    display:inline-block;
-    background:#ffd000;
-    color:#111;
-    padding:20px 35px;
-    border-radius:22px;
-    animation:floatLogo 3s ease-in-out infinite;
-}
-.logo-icon{
-    font-size:55px;
-}
-.logo h1{
-    font-size:40px;
-    letter-spacing:2px;
-}
-header p{
-    margin-top:15px;
-    font-size:18px;
-}
-.available{
-    display:inline-block;
-    margin-top:15px;
-    padding:9px 18px;
-    border:1px solid #ffd000;
-    border-radius:30px;
-    color:#ffd000;
-    font-weight:bold;
-}
-@keyframes floatLogo{
-    0%,100%{
-        transform:translateY(0);
-    }
-    50%{
-        transform:translateY(-8px);
-    }
-}
-/* =========================
-   HERO
-========================= */
-.hero{
-    min-height:500px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:70px 20px;
-    background:
-    radial-gradient(circle at top right,
-    rgba(255,208,0,.20),
-    transparent 35%),
-    #111;
-}
-.hero-content{
-    max-width:750px;
-}
-.hero h2{
-    font-size:44px;
-    margin-bottom:20px;
-}
-.hero h2 span{
-    color:#ffd000;
-}
-.hero p{
-    font-size:20px;
-    line-height:1.7;
-    margin-bottom:30px;
-}
-.buttons{
-    display:flex;
-    justify-content:center;
-    gap:12px;
-    flex-wrap:wrap;
-}
-.button{
-    display:inline-block;
-    padding:17px 28px;
-    border-radius:12px;
-    text-decoration:none;
-    font-size:18px;
-    font-weight:bold;
-    transition:.3s;
-}
-.button:hover{
-    transform:translateY(-5px);
-}
-.yellow-button{
-    background:#ffd000;
-    color:#111;
-}
-.dark-button{
-    border:2px solid #ffd000;
-    color:#ffd000;
-}
-/* =========================
-   SEKCIJE
-========================= */
-.section{
-    padding:65px 20px;
-    text-align:center;
-}
-.white{
-    background:white;
-    color:#111;
-}
-.yellow{
-    background:#ffd000;
-    color:#111;
-}
-.dark{
-    background:#111;
-    color:white;
-}
-.section h2{
-    font-size:32px;
-    margin-bottom:15px;
-}
-.subtitle{
-    max-width:650px;
-    margin:0 auto 30px;
-    font-size:18px;
-    line-height:1.6;
-}
-/* =========================
-   USLUGE
-========================= */
-.services{
-    max-width:900px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:15px;
-}
-.service{
-    padding:25px;
-    background:#ffd000;
-    border-radius:15px;
-    font-size:18px;
-    font-weight:bold;
-    transition:.3s;
-}
-.service:hover{
-    transform:translateY(-6px);
-}
-/* =========================
-   KALKULATOR
-========================= */
-.calculator{
-    max-width:520px;
-    margin:auto;
-    background:white;
-    padding:25px;
-    border-radius:20px;
-    box-shadow:0 15px 40px rgba(0,0,0,.2);
-}
-.calculator label{
-    display:block;
-    text-align:left;
-    font-weight:bold;
-    margin-top:10px;
-}
-.calculator input,
-.calculator select{
-    width:100%;
-    padding:15px;
-    margin-top:7px;
-    border:2px solid #111;
-    border-radius:10px;
-    font-size:17px;
-}
-.calculate-button{
-    width:100%;
-    border:0;
-    background:#111;
-    color:#ffd000;
-    padding:16px;
-    margin-top:18px;
-    border-radius:10px;
-    font-size:18px;
-    font-weight:bold;
-}
-.price-result{
-    display:none;
-    margin-top:20px;
-    padding:20px;
-    border-radius:12px;
-    background:#ffd000;
-    font-size:22px;
-    font-weight:bold;
-}
-.note{
-    margin-top:12px;
-    font-size:13px;
-    color:#555;
-}
-/* =========================
-   PREDNOSTI
-========================= */
-.advantages{
-    max-width:900px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:15px;
-}
-.advantage{
-    background:#191919;
-    padding:25px 15px;
-    border-radius:15px;
-    border:1px solid #333;
-}
-.advantage-icon{
-    font-size:38px;
-    margin-bottom:10px;
-}
-.advantage h3{
-    color:#ffd000;
-    margin-bottom:8px;
-}
-/* =========================
-   LOKACIJE
-========================= */
-.locations{
-    max-width:750px;
-    margin:auto;
-}
-.location{
-    display:inline-block;
-    margin:5px;
-    padding:9px 15px;
-    border-radius:25px;
-    background:#ffd000;
-    font-weight:bold;
-}
-/* =========================
-   FORMA
-========================= */
-.form-box{
-    max-width:520px;
-    margin:auto;
-    background:white;
-    padding:25px;
-    border-radius:20px;
-}
-.form-box input,
-.form-box textarea{
-    width:100%;
-    padding:15px;
-    margin:7px 0;
-    border:2px solid #111;
-    border-radius:10px;
-    font-size:16px;
-}
-.form-box textarea{
-    min-height:100px;
-}
-.send-button{
-    width:100%;
-    border:0;
-    padding:17px;
-    background:#111;
-    color:#ffd000;
-    border-radius:10px;
-    font-size:18px;
-    font-weight:bold;
-}
-/* =========================
-   KONTAKT
-========================= */
-.phone{
-    font-size:30px;
-    font-weight:bold;
-    margin:20px 0;
-}
-/* =========================
-   FLOATING DUGME
-========================= */
-.floating-call{
-    position:fixed;
-    right:18px;
-    bottom:18px;
-    z-index:2000;
-    background:#ffd000;
-    color:#111;
-    text-decoration:none;
-    padding:15px 20px;
-    border-radius:50px;
-    font-weight:bold;
-    box-shadow:0 8px 25px rgba(0,0,0,.35);
-    animation:pulse 2.5s infinite;
-}
-@keyframes pulse{
-    0%{
-        transform:scale(1);
-    }
-    50%{
-        transform:scale(1.06);
-    }
-    100%{
-        transform:scale(1);
-    }
-}
-/* =========================
-   FOOTER
-========================= */
-footer{
-    background:#000;
-    text-align:center;
-    padding:30px 20px;
-    color:#999;
-    line-height:1.8;
-}
-footer strong{
-    color:#ffd000;
-}
-/* =========================
-   MOBILE
-========================= */
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,sans-serif;background:#0b0b0b;color:white}
+.intro{position:fixed;inset:0;background:#0b0b0b;z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;animation:introOut 1s ease forwards;animation-delay:3.8s}
+.intro-logo{width:110px;height:110px;background:#ffd000;border-radius:25px;display:flex;align-items:center;justify-content:center;font-size:58px;opacity:0;transform:scale(.5);animation:logoIn .8s ease forwards}
+.intro-title{margin-top:20px;font-size:38px;font-weight:bold;color:#ffd000;letter-spacing:3px;opacity:0;transform:translateY(20px);animation:textIn .7s ease forwards;animation-delay:.7s}
+.intro-text{margin-top:10px;color:white;font-size:18px;opacity:0;transform:translateY(20px);animation:textIn .7s ease forwards;animation-delay:1.4s}
+.loading{margin-top:25px;width:180px;height:4px;background:#222;overflow:hidden;border-radius:10px}
+.loading span{display:block;width:0;height:100%;background:#ffd000;animation:loading 2.5s ease forwards}
+@keyframes logoIn{to{opacity:1;transform:scale(1)}}
+@keyframes textIn{to{opacity:1;transform:translateY(0)}}
+@keyframes loading{to{width:100%}}
+@keyframes introOut{to{opacity:0;visibility:hidden}}
+nav{position:sticky;top:0;z-index:1000;background:rgba(10,10,10,.96);border-bottom:2px solid #ffd000;padding:15px 10px;text-align:center}
+nav a{color:white;text-decoration:none;margin:0 8px;font-size:13px;font-weight:bold}
+nav a:hover{color:#ffd000}
+header{text-align:center;padding:50px 20px}
+.logo{display:inline-block;background:#ffd000;color:#111;padding:20px 35px;border-radius:22px;animation:floatLogo 3s ease-in-out infinite}
+.logo-icon{font-size:55px}
+.logo h1{font-size:40px;letter-spacing:2px}
+header p{margin-top:15px;font-size:18px}
+.available{display:inline-block;margin-top:15px;padding:9px 18px;border:1px solid #ffd000;border-radius:30px;color:#ffd000;font-weight:bold}
+@keyframes floatLogo{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.hero{min-height:500px;display:flex;justify-content:center;align-items:center;text-align:center;padding:70px 20px;background:radial-gradient(circle at top right,rgba(255,208,0,.20),transparent 35%),#111}
+.hero-content{max-width:750px}
+.hero h2{font-size:44px;margin-bottom:20px}
+.hero h2 span{color:#ffd000}
+.hero p{font-size:20px;line-height:1.7;margin-bottom:30px}
+.buttons{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.button{display:inline-block;padding:17px 28px;border-radius:12px;text-decoration:none;font-size:18px;font-weight:bold;transition:.3s}
+.button:hover{transform:translateY(-5px)}
+.yellow-button{background:#ffd000;color:#111}
+.dark-button{border:2px solid #ffd000;color:#ffd000}
+.section{padding:65px 20px;text-align:center}
+.white{background:white;color:#111}
+.yellow{background:#ffd000;color:#111}
+.dark{background:#111;color:white}
+.section h2{font-size:32px;margin-bottom:15px}
+.subtitle{max-width:650px;margin:0 auto 30px;font-size:18px;line-height:1.6}
+.services{max-width:900px;margin:auto;display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+.service{padding:25px;background:#ffd000;border-radius:15px;font-size:18px;font-weight:bold;transition:.3s}
+.service:hover{transform:translateY(-6px)}
+.calculator{max-width:520px;margin:auto;background:white;padding:25px;border-radius:20px;box-shadow:0 15px 40px rgba(0,0,0,.2)}
+.calculator label{display:block;text-align:left;font-weight:bold;margin-top:10px}
+.calculator input,.calculator select{width:100%;padding:15px;margin-top:7px;border:2px solid #111;border-radius:10px;font-size:17px}
+.calculate-button{width:100%;border:0;background:#111;color:#ffd000;padding:16px;margin-top:18px;border-radius:10px;font-size:18px;font-weight:bold;cursor:pointer}
+.price-result{display:none;margin-top:20px;padding:20px;border-radius:12px;background:#ffd000;font-size:22px;font-weight:bold}
+.note{margin-top:12px;font-size:13px;color:#555}
+.advantages{max-width:900px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.advantage{background:#191919;padding:25px 15px;border-radius:15px;border:1px solid #333}
+.advantage-icon{font-size:38px;margin-bottom:10px}
+.advantage h3{color:#ffd000;margin-bottom:8px}
+.locations{max-width:750px;margin:auto}
+.location{display:inline-block;margin:5px;padding:9px 15px;border-radius:25px;background:#ffd000;font-weight:bold}
+.form-box{max-width:520px;margin:auto;background:white;padding:25px;border-radius:20px}
+.form-box input,.form-box textarea{width:100%;padding:15px;margin:7px 0;border:2px solid #111;border-radius:10px;font-size:16px}
+.form-box textarea{min-height:100px}
+.send-button{width:100%;border:0;padding:17px;background:#111;color:#ffd000;border-radius:10px;font-size:18px;font-weight:bold;cursor:pointer}
+.phone{font-size:30px;font-weight:bold;margin:20px 0}
+.floating-call{position:fixed;right:18px;bottom:18px;z-index:2000;background:#ffd000;color:#111;text-decoration:none;padding:15px 20px;border-radius:50px;font-weight:bold;box-shadow:0 8px 25px rgba(0,0,0,.35);animation:pulse 2.5s infinite}
+@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.06)}100%{transform:scale(1)}}
+footer{background:#000;text-align:center;padding:30px 20px;color:#999;line-height:1.8}
+footer strong{color:#ffd000}
 @media(max-width:650px){
-    .hero h2{
-        font-size:32px;
-    }
-    .hero p{
-        font-size:18px;
-    }
-    .services{
-        grid-template-columns:1fr;
-    }
-    .advantages{
-        grid-template-columns:1fr;
-    }
-    .logo h1{
-        font-size:34px;
-    }
-    nav a{
-        font-size:11px;
-        margin:0 4px;
-    }
-    .intro-title{
-        font-size:32px;
-    }
+.hero h2{font-size:32px}
+.hero p{font-size:18px}
+.services{grid-template-columns:1fr}
+.advantages{grid-template-columns:1fr}
+.logo h1{font-size:34px}
+nav a{font-size:11px;margin:0 4px}
+.intro-title{font-size:32px}
 }
 </style>
 </head>
 <body>
-<!-- =========================
-     UVOD
-========================= -->
+
 <div class="intro">
-    <div class="intro-logo">
-        🚕
-    </div>
-    <div class="intro-title">
-        MOJ TAXI
-    </div>
-    <div class="intro-text">
-        Brz • Siguran • Pouzdan
-    </div>
-    <div class="loading">
-        <span></span>
-    </div>
+<div class="intro-logo">🚕</div>
+<div class="intro-title">MOJ TAXI</div>
+<div class="intro-text">Brz • Siguran • Pouzdan</div>
+<div class="loading"><span></span></div>
 </div>
-<!-- =========================
-     NAV
-========================= -->
+
 <nav>
-    <a href="#usluge">USLUGE</a>
-    <a href="#cena">CENA</a>
-    <a href="#voznja">ZATRAŽI VOŽNJU</a>
-    <a href="#kontakt">KONTAKT</a>
+<a href="#usluge">USLUGE</a>
+<a href="#cena">CENA</a>
+<a href="#voznja">ZATRAŽI VOŽNJU</a>
+<a href="#kontakt">KONTAKT</a>
 </nav>
-<!-- =========================
-     HEADER
-========================= -->
+
 <header>
-    <div class="logo">
-        <div class="logo-icon">
-            🚕
-        </div>
-        <h1>
-            MOJ TAXI
-        </h1>
-    </div>
-    <p>
-        Brz • Siguran • Pouzdan
-    </p>
-    <div class="available">
-        🟢 DOSTUPNI 24H
-    </div>
+<div class="logo">
+<div class="logo-icon">🚕</div>
+<h1>MOJ TAXI</h1>
+</div>
+<p>Brz • Siguran • Pouzdan</p>
+<div class="available">🟢 DOSTUPNI 24H</div>
 </header>
-<!-- =========================
-     HERO
-========================= -->
+
 <section class="hero">
-    <div class="hero-content">
-        <h2>
-            TAXI <span>NOVI SAD</span> 24H
-        </h2>
-        <p>
-            Brz, siguran i pouzdan prevoz putnika.
-            Vozimo svuda — Novi Sad, okolina
-            i međugradske relacije.
-        </p>
-        <div class="buttons">
-            <a
-                class="button yellow-button"
-                href="tel:0621336412"
-            >
-                📞 POZOVI ODMAH
-            </a>
-            <a
-                class="button dark-button"
-                href="#voznja"
-            >
-                🚕 ZATRAŽI VOŽNJU
-            </a>
-        </div>
-    </div>
+<div class="hero-content">
+<h2>TAXI <span>NOVI SAD</span> 24H</h2>
+<p>Brz, siguran i pouzdan prevoz putnika. Vozimo svuda — Novi Sad, okolina i međugradske relacije.</p>
+<div class="buttons">
+<a class="button yellow-button" href="tel:0621336412">📞 POZOVI ODMAH</a>
+<a class="button dark-button" href="#voznja">🚕 ZATRAŽI VOŽNJU</a>
+</div>
+</div>
 </section>
-<!-- =========================
-     USLUGE
-========================= -->
-<section
-    class="section white"
-    id="usluge"
->
-    <h2>
-        NAŠE USLUGE
-    </h2>
-    <p class="subtitle">
-        Prevoz putnika tokom celog dana i noći.
-    </p>
-    <div class="services">
-        <div class="service">
-            🚕 Gradske vožnje
-        </div>
-        <div class="service">
-            🛣️ Međugradske vožnje
-        </div>
-        <div class="service">
-            ✈️ Aerodromski transferi
-        </div>
-        <div class="service">
-            🌍 Vožnje na bilo koju destinaciju
-        </div>
-    </div>
+
+<section class="section white" id="usluge">
+<h2>NAŠE USLUGE</h2>
+<p class="subtitle">Prevoz putnika tokom celog dana i noći.</p>
+<div class="services">
+<div class="service">🚕 Gradske vožnje</div>
+<div class="service">🛣️ Međugradske vožnje</div>
+<div class="service">✈️ Aerodromski transferi</div>
+<div class="service">🌍 Vožnje na bilo koju destinaciju</div>
+</div>
 </section>
-<!-- =========================
-     KALKULATOR
-========================= -->
-<section
-    class="section yellow"
-    id="cena"
->
-    <h2>
-        💰 KALKULATOR CENE
-    </h2>
-    <p class="subtitle">
-        Unesite približan broj kilometara
-        i izaberite tarifu.
-    </p>
-    <div class="calculator">
-        <label>
-            Broj kilometara
-        </label>
-        <input
-            type="number"
-            id="km"
-            min="1"
-            step="0.1"
-            placeholder="npr. 10"
-        >
-        <label>
-            Tarifa
-        </label>
-        <select id="tarifa">
-            <option value="85">
-                Dnevna — 85 din/km
-            </option>
-            <option value="110">
-                Noćna — 110 din/km
-            </option>
-            <option value="150">
-                Vangradska — 150 din/km
-            </option>
-        </select>
-        <button
-            class="calculate-button"
-            onclick="izracunajCenu()"
-        >
-            IZRAČUNAJ CENU
-        </button>
-        <div
-            id="rezultat"
-            class="price-result"
-        ></div>
-        <p class="note">
-            * Cena je okvirna i zavisi od stvarne rute.
-        </p>
-    </div>
+
+<section class="section yellow" id="cena">
+<h2>💰 KALKULATOR CENE</h2>
+<p class="subtitle">Unesite približan broj kilometara i izaberite tarifu.</p>
+<div class="calculator">
+<label>Broj kilometara</label>
+<input type="number" id="km" min="1" step="0.1" placeholder="npr. 10">
+
+<label>Tarifa</label>
+<select id="tarifa">
+<option value="70">☀️ Dnevna — 70 din/km</option>
+<option value="85">🌙 Noćna — 85 din/km</option>
+<option value="85">🛣️ Međugradska — 85 din/km</option>
+</select>
+
+<button class="calculate-button" onclick="izracunajCenu()">IZRAČUNAJ CENU</button>
+
+<div id="rezultat" class="price-result"></div>
+
+<p class="note">* Cena je okvirna i zavisi od stvarne rute.</p>
+</div>
 </section>
-<!-- =========================
-     PREDNOSTI
-========================= -->
+
 <section class="section dark">
-    <h2>
-        ZAŠTO MOJ TAXI?
-    </h2>
-    <p class="subtitle">
-        Pouzdan prevoz kada vam je potreban.
-    </p>
-    <div class="advantages">
-        <div class="advantage">
-            <div class="advantage-icon">
-                ⚡
-            </div>
-            <h3>
-                BRZO
-            </h3>
-            <p>
-                Trudimo se da stignemo što pre.
-            </p>
-        </div>
-        <div class="advantage">
-            <div class="advantage-icon">
-                🛡️
-            </div>
-            <h3>
-                SIGURNO
-            </h3>
-            <p>
-                Bezbedan i pouzdan prevoz.
-            </p>
-        </div>
-        <div class="advantage">
-            <div class="advantage-icon">
-                🕐
-            </div>
-            <h3>
-                24H
-            </h3>
-            <p>
-                Dostupni tokom celog dana i noći.
-            </p>
-        </div>
-    </div>
+<h2>ZAŠTO MOJ TAXI?</h2>
+<p class="subtitle">Pouzdan prevoz kada vam je potreban.</p>
+<div class="advantages">
+
+<div class="advantage">
+<div class="advantage-icon">⚡</div>
+<h3>BRZO</h3>
+<p>Trudimo se da stignemo što pre.</p>
+</div>
+
+<div class="advantage">
+<div class="advantage-icon">🛡️</div>
+<h3>SIGURNO</h3>
+<p>Bezbedan i pouzdan prevoz.</p>
+</div>
+
+<div class="advantage">
+<div class="advantage-icon">🕐</div>
+<h3>24H</h3>
+<p>Dostupni tokom celog dana i noći.</p>
+</div>
+
+</div>
 </section>
-<!-- =========================
-     LOKACIJE
-========================= -->
+
 <section class="section white">
-    <h2>
-        GDE VOZIMO?
-    </h2>
-    <p class="subtitle">
-        Novi Sad, okolina i međugradske relacije.
-    </p>
-    <div class="locations">
-        <span class="location">
-            Novi Sad
-        </span>
-        <span class="location">
-            Temerin
-        </span>
-        <span class="location">
-            Bački Jarak
-        </span>
-        <span class="location">
-            Petrovaradin
-        </span>
-        <span class="location">
-            Sremska Kamenica
-        </span>
-        <span class="location">
-            Futog
-        </span>
-        <span class="location">
-            Veternik
-        </span>
-        <span class="location">
-            Beočin
-        </span>
-    </div>
+<h2>GDE VOZIMO?</h2>
+<p class="subtitle">Novi Sad, okolina i međugradske relacije.</p>
+<div class="locations">
+<span class="location">Novi Sad</span>
+<span class="location">Temerin</span>
+<span class="location">Bački Jarak</span>
+<span class="location">Petrovaradin</span>
+<span class="location">Sremska Kamenica</span>
+<span class="location">Futog</span>
+<span class="location">Veternik</span>
+<span class="location">Beočin</span>
+</div>
 </section>
-<!-- =========================
-     ZATRAŽI VOŽNJU
-========================= -->
-<section
-    class="section yellow"
-    id="voznja"
->
-    <h2>
-        🚕 ZATRAŽI VOŽNJU
-    </h2>
-    <p class="subtitle">
-        Unesite podatke i pošaljite zahtev.
-    </p>
-    <div class="form-box">
-        <form
-            action="https://formspree.io/f/meaqqdap"
-            method="POST"
-        >
-            <input
-                type="text"
-                name="Odakle"
-                placeholder="📍 Odakle?"
-                required
-            >
-            <input
-                type="text"
-                name="Dokle"
-                placeholder="📍 Dokle?"
-                required
-            >
-            <input
-                type="datetime-local"
-                name="Vreme vožnje"
-                required
-            >
-            <input
-                type="tel"
-                name="Broj telefona"
-                placeholder="📞 Vaš broj telefona"
-                required
-            >
-            <textarea
-                name="Napomena"
-                placeholder="📝 Dodatna napomena (opciono)"
-            ></textarea>
-            <button
-                class="send-button"
-                type="submit"
-            >
-                🚕 POŠALJI ZAHTEV
-            </button>
-        </form>
-    </div>
+
+<section class="section yellow" id="voznja">
+<h2>🚕 ZATRAŽI VOŽNJU</h2>
+<p class="subtitle">Unesite podatke i pošaljite zahtev.</p>
+
+<div class="form-box">
+<form action="https://formspree.io/f/meaqqdap" method="POST">
+
+<input type="text" name="Odakle" placeholder="📍 Odakle?" required>
+
+<input type="text" name="Dokle" placeholder="📍 Dokle?" required>
+
+<input type="datetime-local" name="Vreme vožnje" required>
+
+<input type="tel" name="Broj telefona" placeholder="📞 Vaš broj telefona" required>
+
+<textarea name="Napomena" placeholder="📝 Dodatna napomena (opciono)"></textarea>
+
+<button class="send-button" type="submit">🚕 POŠALJI ZAHTEV</button>
+
+</form>
+</div>
 </section>
-<!-- =========================
-     KONTAKT
-========================= -->
-<section
-    class="section dark"
-    id="kontakt"
->
-    <h2>
-        KONTAKT
-    </h2>
-    <p class="subtitle">
-        Za brzu rezervaciju pozovite direktno.
-    </p>
-    <p class="phone">
-        📞 062 133 6412
-    </p>
-    <a
-        class="button yellow-button"
-        href="tel:0621336412"
-    >
-        📞 POZOVI ODMAH
-    </a>
+
+<section class="section dark" id="kontakt">
+<h2>KONTAKT</h2>
+<p class="subtitle">Za brzu rezervaciju pozovite direktno.</p>
+<p class="phone">📞 062 133 6412</p>
+<a class="button yellow-button" href="tel:0621336412">📞 POZOVI ODMAH</a>
 </section>
-<!-- =========================
-     FOOTER
-========================= -->
+
 <footer>
-    <strong>
-        🚕 MOJ TAXI
-    </strong>
-    <br>
-    Taxi i prevoz putnika 24H
-    <br>
-    Novi Sad i okolina
-    <br><br>
-    © 2026 MOJ TAXI
+<strong>🚕 MOJ TAXI</strong>
+<br>
+Taxi i prevoz putnika 24H
+<br>
+Novi Sad i okolina
+<br><br>
+© 2026 MOJ TAXI
 </footer>
-<!-- =========================
-     FLOATING CALL
-========================= -->
-<a
-    class="floating-call"
-    href="tel:0621336412"
->
-    📞 POZOVI
-</a>
-<!-- =========================
-     KALKULATOR
-========================= -->
+
+<a class="floating-call" href="tel:0621336412">📞 POZOVI</a>
+
 <script>
 function izracunajCenu(){
-    const kilometri =
-        parseFloat(
-            document.getElementById("km").value
-        );
-    const tarifa =
-        parseFloat(
-            document.getElementById("tarifa").value
-        );
-    const rezultat =
-        document.getElementById("rezultat");
-    if(!kilometri || kilometri <= 0){
-        rezultat.style.display="block";
-        rezultat.innerHTML =
-            "⚠️ Unesite broj kilometara.";
-        return;
-    }
-    const cena =
-        Math.round(
-            kilometri * tarifa
-        );
-    rezultat.style.display="block";
-    rezultat.innerHTML =
-        "🚕 Okvirna cena: " +
-        cena.toLocaleString("sr-RS") +
-        " din";
+const kilometri=parseFloat(document.getElementById("km").value);
+const tarifa=parseFloat(document.getElementById("tarifa").value);
+const rezultat=document.getElementById("rezultat");
+
+if(!kilometri || kilometri<=0){
+rezultat.style.display="block";
+rezultat.innerHTML="⚠️ Unesite broj kilometara.";
+return;
+}
+
+const cena=Math.round(kilometri*tarifa);
+
+rezultat.style.display="block";
+rezultat.innerHTML="🚕 Okvirna cena: "+cena.toLocaleString("sr-RS")+" din";
 }
 </script>
+
 </body>
 </html>
